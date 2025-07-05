@@ -1,20 +1,37 @@
-# This is an implementation of the repo:
 
-https://github.com/Kazuhito00/hand-gesture-recognition-using-mediapipe
+## 📦 Model Conversion
 
+To convert an HDF5 model to TensorFlow\.js format, use the `tensorflowjs_converter` CLI tool:
 
-## To convert the hdf5 model to tfjs you can use the [tensorflowjs_converter](https://www.tensorflow.org/js/guide/conversion) CLI following command: 
+```bash
 tensorflowjs_converter --input_format keras --output_format tfjs_graph_model model/keypoint_classifier/keypoint_classifier.hdf5 tfjs_model/
+```
 
-## Getting Started
+Refer to the [TensorFlow.js conversion guide](https://www.tensorflow.org/js/guide/conversion) for more details.
 
-First, run the development server:
+---
+
+##  Getting Started
+
+To run the development server:
 
 ```bash
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Once started, open your browser at:
 
-## Warning
-This project originally was build in `NEXTJS` I migrated it to vite because of `SSR` issues, It should be working now. Although the github pages `CI` Pipeline is not working and also I removed the env variables for the `public` dir prefix so you will have to add it in order to load the gesture recognition model.
+```
+http://localhost:3000
+```
+
+---
+
+## ⚠ Notes
+
+* This project was originally built using **Next.js**. Due to issues with Server-Side Rendering (SSR), it was migrated to **Vite** for a simpler and static setup.
+* The GitHub Pages CI pipeline may not work out-of-the-box. Ensure that your **deployment folder is correctly configured** in the GitHub Actions workflow (`dist` for Vite).
+* If gesture recognition models fail to load, make sure the correct **public path** or **environment variables** are set (especially `NEXT_PUBLIC_BASE_PATH` or similar) to locate model files under the `public/` directory.
+
+
+
